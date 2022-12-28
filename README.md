@@ -34,5 +34,14 @@ docker run --rm --name activity-2-ex-4 -p 8000:9000 decima/mds-activity-2:ex-4
 ## exercice 5
 
 ```bash
-docker run --rm --name activity-2-ex-5 -p 8000:10000 -e HOST_AND_PORT=0.0.0.0:10000 decima/mds-activity-2:ex-5 serve
+docker run --rm --name activity-2-ex-5 -p 8000:10000 -e HOST_AND_PORT=0.0.0.0:10000 decima/mds-activity-2:ex-5
+```
+
+## Exercice 6 - networking
+```bash
+docker network create chat
+docker run --rm --name my-chat-server --network chat decima/mds-activity-2:server
+docker run --rm -e SERVER=my-chat-server:9000  --network chat decima/mds-activity-2:client
+
+
 ```

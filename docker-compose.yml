@@ -29,3 +29,15 @@ services:
       HOST_AND_PORT: 0.0.0.0:9001
     ports:
       - 8001:9001
+  ex6-server:
+    image: decima/mds-activity-2:server
+    build:
+      context: ./exercice-6-server
+    environment:
+      HOST_AND_PORT: 0.0.0.0:9000
+  ex6-client:
+    image: decima/mds-activity-2:client
+    build:
+      context: ./exercice-6-client
+    environment:
+      SERVER: ex6-server:9000
