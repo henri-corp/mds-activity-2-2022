@@ -21,3 +21,11 @@ services:
       context: ./exercice-4
     ports:
       - 8000:9000
+  ex5:
+    image: decima/mds-activity-2:ex-5
+    build:
+      context: ./exercice-5
+    environment:
+      HOST_AND_PORT: 0.0.0.0:9001
+    ports:
+      - 8001:9001
