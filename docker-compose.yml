@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  ex1:
+    image: decima/mds-activity-2:ex-1
+    build:
+      context: ./exercice-1
+  ex2:
+    image: decima/mds-activity-2:ex-2
+    build:
+      context: ./exercice-2
+    command: "Henri"
+  ex3:
+    image: decima/mds-activity-2:ex-3
+    build:
+      context: ./exercice-3
+    volumes:
+      - ./motd.txt:/data/motd.txt
+  ex4:
+    image: decima/mds-activity-2:ex-4
+    build:
+      context: ./exercice-4
+    ports:
+      - 8000:9000
