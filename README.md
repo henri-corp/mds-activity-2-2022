@@ -45,3 +45,13 @@ docker run --rm -e SERVER=my-chat-server:9000  --network chat decima/mds-activit
 
 
 ```
+
+## Exercice 7 - wordpress
+```bash
+docker network create wp
+docker volume create wp
+docker volume create bdd
+docker run -d --rm --name bdd -e MYSQL_DATABASE=myblog -e MYSQL_ROOT_PASSWORD=somePassword -v bdd:/var/lib/mysql  --network wp mysql:8
+docker run -d --rm --name wp -v wp:/var/www/html/wp-content -e WORDPRESS_DB_HOST=bdd:3306 -e WORDPRESS_DB_USER=root -e WORDPRESS_DB_PASSWORD=somePassword -e WORDPRESS_DB_NAME=myblog -p 12000:80 --network wp wordpress:6
+
+```
